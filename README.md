@@ -12,7 +12,7 @@
 
 > ## **Example**
 
-### _package main_
+### package main
 
 ```golang
 
