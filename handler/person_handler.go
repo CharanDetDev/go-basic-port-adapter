@@ -47,8 +47,10 @@ func (handler *personHandler) GetPersonByID(c *fiber.Ctx) error {
 }
 
 func Response(c *fiber.Ctx, httpCode int, data interface{}) (err error) {
+
 	js, _ := json.Marshal(data)
 	c.Write(js)
 	c.Status(httpCode)
+
 	return nil
 }

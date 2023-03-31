@@ -23,6 +23,7 @@ func NewPersonService(personRepo repository.PersonRepo) PersonService {
 }
 
 func (service *personService) GetPersonByID(personId int, person *repository.PersonModel) error {
+
 	err := service.PersonRepo.GetPersonByID(personId, person)
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
@@ -31,5 +32,6 @@ func (service *personService) GetPersonByID(personId int, person *repository.Per
 		}
 		return err
 	}
+
 	return nil
 }

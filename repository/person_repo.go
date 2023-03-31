@@ -33,9 +33,11 @@ func NewPersonRepo(dbConnect *gorm.DB) PersonRepo {
 }
 
 func (repo *personRepo) GetPersonByID(personId int, person *PersonModel) error {
+
 	err := repo.DBConnect.First(&person, personId).Error
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
