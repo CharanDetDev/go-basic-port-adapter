@@ -18,7 +18,7 @@
 
 func main() {
 
-    //* Database Connection
+        //* Database Connection
 	DBConnect, err := gorm.Open(
 		mysql.Open("root:#demo#MySQL@tcp(localhost:3307)/demoMySQL?parseTime=True&loc=Local"),
 		&gorm.Config{
@@ -48,12 +48,12 @@ func main() {
 ```golang
 
 type (
-	 //* Adapter
+	//* Adapter
 	personHandler struct {
 		PersonService service.PersonService
 	}
 
-    //* Interface Port
+        //* Interface Port
 	PersonHandler interface {
 		GetPersonByID(c *fiber.Ctx) error
 	}
@@ -95,12 +95,12 @@ func (handler *personHandler) GetPersonByID(c *fiber.Ctx) error {
 ```golang
 
 type (
-    //* Adapter
+        //* Adapter
 	personService struct {
 		PersonRepo repository.PersonRepo
 	}
 
-    //* Interface Port
+        //* Interface Port
 	PersonService interface {
 		GetPersonByID(personId int, person *repository.PersonModel) error
 	}
@@ -136,12 +136,12 @@ func (service *personService) GetPersonByID(personId int, person *repository.Per
 ```golang
 
 type (
-    //* Adapter
+        //* Adapter
 	personRepo struct {
 		DBConnect *gorm.DB
 	}
 
-    //* Interface Port
+        //* Interface Port
 	PersonRepo interface {
 		GetPersonByID(personID int, person *PersonModel) error
 	}
